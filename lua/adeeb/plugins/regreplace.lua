@@ -1,3 +1,4 @@
 return {
-  "vim-scripts/ReplaceWithRegister"
+  "vim-scripts/ReplaceWithRegister",
+  event = { "BufReadPre", "BufNewFile" },
 }

@@ -2,6 +2,7 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
@@ -10,6 +11,7 @@ return {
 
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
+    local mason_dap = require("mason-nvim-dap")
 
     local mason_tool_installer = require("mason-tool-installer")
 
@@ -32,6 +34,13 @@ return {
         "nil_ls",
         "pyright",
         "rust_analyzer",
+      },
+    })
+
+    mason_dap.setup({
+      ensure_installed = {
+        "python", -- python DAP
+        "codelldb", -- C/C++/Rust/Zig DAP
       },
     })
 
